@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_security_group" "ssh_traffic" {
-  name        = "ssh_traffic"
+  name        = "ssh_traffic" 
   description = "Allow SSH inbound traffic"
   ingress {
     description = "SSH"
@@ -16,7 +16,7 @@ resource "aws_security_group" "ssh_traffic" {
 
 resource "aws_instance" "web_server_instance" {
   ami = data.aws_ami.ubuntu.id
-  instance_type = "t2.micro"
+  instance_type = "t2.micro" 
   security_groups = [ "${aws_security_group.ssh_traffic.name}" ]
   tags = {
     Name = "bc_workshop_ec2"
